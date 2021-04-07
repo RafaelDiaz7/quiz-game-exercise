@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"encoding/csv"
 	"fmt"
 	"log"
@@ -34,9 +35,10 @@ func exerciseCheck(csvRecords [][]string) (counter int) {
 	for _, record := range csvRecords {
 		fmt.Println(record[0], "= ")
 		correctAnswer := record[1]
-		//scanner := bufio.NewScanner()
-		//userAnswer := scanner.Text()
-		userAnswer := "10"
+		scanner := bufio.NewScanner(os.Stdin)
+		scanner.Split(bufio.ScanWords)
+		scanner.Scan()
+		userAnswer := scanner.Text()
 		if userAnswer == correctAnswer {
 			counter += 1
 		}
