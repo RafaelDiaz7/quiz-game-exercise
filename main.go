@@ -33,7 +33,7 @@ func getCsvRecords() (csvRecords [][]string) {
 func exerciseCheck(csvRecords [][]string) (counter int) {
 	counter = 0
 	for _, record := range csvRecords {
-		fmt.Println(record[0], "= ")
+		fmt.Printf("%v = ", record[0])
 		correctAnswer := record[1]
 		scanner := bufio.NewScanner(os.Stdin)
 		scanner.Split(bufio.ScanWords)
